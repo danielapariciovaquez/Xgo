@@ -13,7 +13,7 @@ DEADZONE = 0.01
 # =====================================================
 # MAPEO DEL MANDO
 # =====================================================
-BUTTON_START = 11
+BUTTON_START = 7
 BUTTON_HEIGHT_UP = 4
 BUTTON_HEIGHT_DOWN = 0
 BUTTON_PAW = 1            # Botón B
