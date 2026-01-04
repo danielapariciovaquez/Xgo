@@ -24,11 +24,9 @@ AXIS_ROTATE  = 2
 AXIS_INCLINE = 3
 
 # =====================================================
-# ACCIONES XGO (0x3E)
-# Según el manual serial.pdf:
-# 19 = shaking hands
+# ACCIONES XGO
 # =====================================================
-ACTION_GIVE_PAW = 19
+ACTION_GIVE_PAW = 12      # escribir 12 en 0x3E
 
 # =====================================================
 # ALTURA (SE QUEDA IGUAL)
@@ -153,23 +151,11 @@ try:
             continue
 
         # ---------------------------------------------
-        # BOTÓN B → DAR LA PATA (0x3E = 19)
-        # Recomendación: STOP previo + repetir acción
+        # BOTÓN B → DAR LA PATA (0x3E = 12)
         # ---------------------------------------------
         paw_pressed = joy.get_button(BUTTON_PAW)
         if paw_pressed and not prev_paw:
-            # parar un instante para que el firmware ejecute la acción limpio
-            ser.write(FRAME_STOP_FORWARD)
-            ser.write(FRAME_STOP_LATERAL)
-            ser.write(FRAME_STOP_ROTATE)
-            time.sleep(0.05)
-
-            # enviar la acción varias veces para robustez
-            action_frame = build_frame(0x3E, ACTION_GIVE_PAW)
-            for _ in range(3):
-                ser.write(action_frame)
-                time.sleep(0.02)
-
+            ser.write(build_frame(0x3E, ACTION_GIVE_PAW))
         prev_paw = paw_pressed
 
         # ---------------------------------------------
