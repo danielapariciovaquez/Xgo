@@ -14,14 +14,14 @@ DEADZONE = 0.01
 # MAPEO DEL MANDO
 # =====================================================
 BUTTON_START = 7
-BUTTON_HEIGHT_UP = 4
+BUTTON_HEIGHT_UP = 3
 BUTTON_HEIGHT_DOWN = 0
 BUTTON_PAW = 1            # Botón B
 
 AXIS_FORWARD = 1
 AXIS_LATERAL = 0
-AXIS_ROTATE  = 2
-AXIS_INCLINE = 3
+AXIS_ROTATE  = 3
+AXIS_INCLINE = 4
 
 # =====================================================
 # ACCIONES XGO
